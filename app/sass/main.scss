@@ -7,6 +7,8 @@ $orangeMain: #f39c12;
 $titleP: #515151;
 $p: #a5a5a5;
 
+//---------common styles ----------------------
+
 html {
 	font-size: 20px;
 }
@@ -37,6 +39,8 @@ body {
 	margin: 0 auto;
 	max-width: 1920px;	
 }
+
+//---------Overlay and popup ----------------------
 
 .overlay {
 	top: 0;
@@ -166,7 +170,7 @@ body {
 	cursor: pointer;
 }
 
-/* подгон под PerfectPixel с марджинами - с точечным выравниванием */
+//---------Header ----------------------
 
 header {	
 	background: url(../img/headerbg.png) no-repeat;
@@ -354,6 +358,8 @@ header {
 	}
 }
 
+//---------Section2(this section follows after header) ----------------------
+
 .section2 {
 	background: url(../img/bg.jpg) no-repeat;
 	padding-top: 96px;
@@ -507,9 +513,7 @@ header {
 	}
 
 }
-/*подгон под PerfectPixel с марджинами - с точечным выравниванием(end) */
 
-/* выравнивание флексами и инлайн блоками без точечного выравнивания */
 .aboutWrap2 {
 	margin-top: 250px;
 	display: flex;
@@ -634,6 +638,8 @@ header {
 	}
 }
 
+//----------Section3------------------------------------
+
 .section3 {	
 	background: url('../img/bg2.jpg') no-repeat;
 	padding-bottom: 258px;
@@ -742,9 +748,7 @@ q {
 	}
 }
 
-/*выравнивание флексами и инлайн блоками без точечного выравнивания(end)*/
-
-/* выравнивание преимущественно smartgid'ом, флуксами инлайн-блоками, без точечного */
+//----------------Section4------------------------------------
 
 .section4 {
 	background: url(../img/bg.jpg);
@@ -838,7 +842,7 @@ q {
 
 	&:hover {
 		background: #f0f0f0;
-		cursor: pointer;	
+		cursor: pointer;
 		
 		&::after {
 			content: '';
@@ -905,6 +909,8 @@ q {
 		justify-content: space-around;
 	}
 }
+
+//----------------Section5------------------------------------
 
 .section5 {
 	background: url(../img/bg2.jpg) no-repeat;
@@ -1028,7 +1034,8 @@ q {
 		@include xs(font-size, 1rem);
 	}
 }
-/* (end)выравнивание преимущественно smartgid'ом, флуксами инлайн-блоками, без точечного*/
+
+//----------------Section5------------------------------------
 
 .section6 {
 	background: #fff;
@@ -1298,13 +1305,11 @@ q {
 	} 
 }
 
+//----------------Section7------------------------------------
+
 .section7 {
 	 background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 	 padding-bottom: 50px;
-}
-
-.sec7Wrap1{
-
 }
 
 .slider {
