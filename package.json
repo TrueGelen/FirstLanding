@@ -18,9 +18,7 @@
     "gulp-notify": "^3.2.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "smart-grid": "^2.1.2"
-  },
-  "dependencies": {
+    "smart-grid": "^2.1.2",
     "del": "^5.0.0"
   }
 }
