@@ -2,6 +2,7 @@
 @import 'smart-grid';
 @import '_iconfonts';
 @import '_animation';
+@import '_classesInsteadOfanimeClasses';
 
 $orangeMain: #f39c12;
 $titleP: #515151;
@@ -186,10 +187,10 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	padding-top: 85px;
-	opacity: 0;
 }
 
 .logo {
+	opacity: 0;
 	img {
 		max-width: 151px;
 		@include xs(max-width, 120px);
@@ -197,6 +198,7 @@ header {
 }
 
 .menu {
+	opacity: 0;
 	flex-basis: 69%;
 
 	@include md(display, none);
@@ -1549,7 +1551,7 @@ q {
 footer{
 	display: flex;
 	justify-content: space-around;
-	//background: linear-gradient(to right, #9796f0, #fbc7d4);
+	background: linear-gradient(to right, #9796f0, #fbc7d4);
 	padding-top: 20px;
 	padding-bottom: 20px;
 

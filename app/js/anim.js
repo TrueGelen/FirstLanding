@@ -1,6 +1,6 @@
 "use strict"
 
-window.onload = function () {
+window.addEventListener('load', function () {
 
     /*let about = document.querySelector('.section2 .container .aboutWrap1 .about');  //get a desired object
     let test = document.querySelector('.section3 .container .section3_wrapper .section3_wrapper-title1');
@@ -97,44 +97,48 @@ window.onload = function () {
     }
 
     let animateOnScroll = function () {
-        let progressLines = document.querySelectorAll('.section2 .container .aboutWrap2 .skills .skills_it2 .skills_it2_pair .skills_it2_pair-line');
-        let animationMods = ['skillsLineMod88', 'skillsLineMod76', 'skillsLineMod81', 'skillsLineMod71', 'teamprofile-mod1', 'teamprofile-mod2', 'circlePosition0', 'circlePosition1', 'circlePosition2', 'circlePosition3'];
-        let teamProfiles = document.querySelectorAll('.section4 .container .teamprofiles .teamprofile');
-        let circles = document.querySelectorAll('.section5 .container .circle');
+        if (window.innerWidth > 780) {
+            let progressLines = document.querySelectorAll('.section2 .container .aboutWrap2 .skills .skills_it2 .skills_it2_pair .skills_it2_pair-line');
+            let animationMods = ['skillsLineMod88', 'skillsLineMod76', 'skillsLineMod81', 'skillsLineMod71', 'teamprofile-mod1', 'teamprofile-mod2', 'circlePosition0', 'circlePosition1', 'circlePosition2', 'circlePosition3'];
+            let teamProfiles = document.querySelectorAll('.section4 .container .teamprofiles .teamprofile');
+            let circles = document.querySelectorAll('.section5 .container .circle');
 
-        let watchScroll = function () {
-            let positionY = this.pageYOffset;  // присваиваем координаты в переменную
-            // console.log('Yoffset' + ' ' + positionY);
-            if (positionY >= 1215) {                               //начинаем линии
-                progressLines[0].classList.add(animationMods[0]);
-                // console.log('Yoffset' + ' ' + positionY);
-            }
-            if (positionY >= 1300)
-                progressLines[1].classList.add(animationMods[1]);
-            if (positionY >= 1382)
-                progressLines[2].classList.add(animationMods[2]);
-            if (positionY >= 1430)
-                progressLines[3].classList.add(animationMods[3]); // заканчиваем линии
-            // window.removeEventListener('scroll', watchScroll);
-            if (positionY >= 3185) {                               // начинаем теампрофили
-                for (let i = 0; i < 4; i += 2) {
-                    teamProfiles[i].classList.add(animationMods[4]);
-                    for (let i = 1; i < 4; i += 2)
-                        teamProfiles[i].classList.add(animationMods[5]);
+            let watchScroll = function () {
+                //console.log("width of screen", document.documentElement.clientWidth)
+                //console.log("width of window.innerWidth", window.innerWidth)
+                let positionY = this.pageYOffset;  // присваиваем координаты в переменную
+                //console.log('Yoffset' + ' ' + positionY);
+                if (positionY >= 1215) {                               //начинаем линии
+                    progressLines[0].classList.add(animationMods[0]);
+                    // console.log('Yoffset' + ' ' + positionY);
                 }
-            }
-            if (document.documentElement.clientWidth > 1453452) { //УЧЕСТЬ АДАПТИВНОСТЬ И ИЗМЕНЯЮЩИЕСЯ КООРДИНАТЫ БЛОКОВ!!!
-                //if (positionY >= 3600) {                                //начинаем раздвигать круги в секции 5
-                if (positionY >= 3600) {
-                    let j = 6;
-                    for (let i = 0; i < 4; i++) {
-                        circles[i].classList.add(animationMods[j]);
-                        j++;
+                if (positionY >= 1300)
+                    progressLines[1].classList.add(animationMods[1]);
+                if (positionY >= 1382)
+                    progressLines[2].classList.add(animationMods[2]);
+                if (positionY >= 1430)
+                    progressLines[3].classList.add(animationMods[3]); // заканчиваем линии
+                // window.removeEventListener('scroll', watchScroll);
+                if (positionY >= 3185) {                              // начинаем теампрофили
+                    for (let i = 0; i < 4; i += 2) {
+                        teamProfiles[i].classList.add(animationMods[4]);
+                        for (let i = 1; i < 4; i += 2)
+                            teamProfiles[i].classList.add(animationMods[5]);
                     }
-                }
-            }                                                     //заканчиваем теампрофили                                                                //заканчиваем с кругами в секции 5
+                }                                                     //заканчиваем теампрофили   
+                if (document.documentElement.clientWidth > 1453452) { //УЧЕСТЬ АДАПТИВНОСТЬ И ИЗМЕНЯЮЩИЕСЯ КООРДИНАТЫ БЛОКОВ!!!
+                    //if (positionY >= 3600) {                        //начинаем раздвигать круги в секции 5
+                    if (positionY >= 3600) {
+                        let j = 6;
+                        for (let i = 0; i < 4; i++) {
+                            circles[i].classList.add(animationMods[j]);
+                            j++;
+                        }
+                    }
+                }                                                      //заканчиваем с кругами в секции 5
+            }
+            window.addEventListener('scroll', watchScroll);
         }
-        window.addEventListener('scroll', watchScroll);
     }
 
     animateOnScroll();
@@ -183,7 +187,7 @@ window.onload = function () {
 
     // testPopup.debug();
     circlePopup.run();
-}
+})
 
 class MySlider {
     constructor(obj) {

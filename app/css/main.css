@@ -507,6 +507,7 @@
 
 @keyframes fadeOutDownBig {
   from {
+    opacity: 1;
   }
   to {
     opacity: 0;
@@ -520,6 +521,7 @@
 
 @keyframes rotateOutDownRight {
   0% {
+    opacity: 1;
     transform-origin: right bottom;
   }
   70% {
@@ -549,6 +551,31 @@
 
 .fadeOut {
   animation: fadeOut 1s forwards;
+}
+
+[class*="MMskillsLineMod"]::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  background: #f39c12;
+  left: 0%;
+}
+
+.MMskillsLineMod88::after {
+  width: 88%;
+}
+
+.MMskillsLineMod76::after {
+  width: 76%;
+}
+
+.MMskillsLineMod81::after {
+  width: 81%;
+}
+
+.MMskillsLineMod71::after {
+  width: 71%;
 }
 
 html {
@@ -738,6 +765,9 @@ header {
   justify-content: space-between;
   align-items: center;
   padding-top: 85px;
+}
+
+.logo {
   opacity: 0;
 }
 
@@ -752,6 +782,7 @@ header {
 }
 
 .menu {
+  opacity: 0;
   flex-basis: 69%;
 }
 
@@ -2928,6 +2959,7 @@ q {
 footer {
   display: flex;
   justify-content: space-around;
+  background: linear-gradient(to right, #9796f0, #fbc7d4);
   padding-top: 20px;
   padding-bottom: 20px;
 }

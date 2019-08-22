@@ -8,7 +8,8 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css'),
     uglify = require('gulp-uglify'),
-    del = require('del');
+    del = require('del'),
+    imagemin = require('gulp-imagemin');
 
 const arrayOfcss = ['./app/css/normalize.css', './app/css/main.css'];
 const arrayOfJs = ['./app/js/anim.js'];
@@ -73,25 +74,39 @@ gulp.task('sass', function () {
 gulp.task('browser-sync', function () {
     browserSync({
         server: {
-            baseDir: 'app'
+            baseDir: './'
         },
         notify: false
     });
 });
 
+
+//Не использую не устраивает сжатие.(лучше тут https://www.iloveimg.com/ru/compress-image)
+gulp.task('imageMin', function () {
+    gulp.src('app/img/**')
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 5 }),
+            imagemin.svgo({
+                plugins: [
+                    { removeViewBox: true },
+                    { cleanupIDs: false }
+                ]
+            })
+        ]))
+        .pipe(gulp.dest('dist/img/'))
+});
+
 async function removeAll() {
     const deletedPaths = await del(['dist']);
-
     console.log('Deleted files and directories:\n', deletedPaths.join('\n'));
 }
 
 gulp.task('dev', gulp.parallel('sass', 'browser-sync', function () {
     gulp.watch('app/sass/**/*.+(sass|scss)', gulp.parallel('sass'));
-    gulp.watch('app/*.html').on('change', browserSync.reload);
+    gulp.watch('/*.html').on('change', browserSync.reload);
     gulp.watch('app/js/*.js').on('change', browserSync.reload);
 }));
 
 gulp.task('build', gulp.series(removeAll, 'sass', 'concatCss'));
-
-//нужны для конечной сборки:
-//autoprefixer, minImage, minCss

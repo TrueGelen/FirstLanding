@@ -1,0 +1,25 @@
+[class*="MMskillsLineMod"] {
+	&::after {	
+		content: '';
+		display: block;
+		position: absolute;		
+		height: 100%;
+		background: $iconColor4;
+		left: 0%;
+	}
+}
+
+.MMskillsLineMod {
+	&88::after {
+		width: 88%;
+	}
+	&76::after {
+		width: 76%;
+	}
+	&81::after {
+		width: 81%;
+	}
+	&71::after {
+		width: 71%;
+	}
+}
