@@ -1,11 +1,27 @@
 var gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	browserSync = require('browser-sync'),
-	notify = require('gulp-notify'),
-	smartgrid = require('smart-grid'),
+    sass = require('gulp-sass'),
+    browserSync = require('browser-sync'),
+    notify = require('gulp-notify'),
+    smartgrid = require('smart-grid'),
     gcmq = require('gulp-group-css-media-queries');
+concat = require('gulp-concat');
 
-	/* It's principal settings in smart grid project */
+const arrayOfcss = ['./app/css/normalize.css', './app/css/main.css'];
+const arrayOfJs = [];
+
+gulp.task('concatCss', function () {
+    return gulp.src(arrayOfcss)
+        .pipe(concat('styles.css'))
+        .pipe(gulp.dest('./dist/css/'));
+});
+
+gulp.task('concatJS', function () {
+    return gulp.src(arrayOfJs)
+        .pipe(concat('index.js'))
+        .pipe(gulp.dest('./dist/js/'));
+});
+
+/* It's principal settings in smart grid project */
 var settings = {
     outputStyle: 'sass', /* less || scss || sass || styl */
     columns: 12, /* number of grid columns */
@@ -41,32 +57,32 @@ var settings = {
         */
     }
 };
- 
+
 smartgrid('./app/sass', settings);
 
-gulp.task('sass', function() {
-	return gulp.src('app/sass/*.+(sass|scss)')
-		.pipe(sass({outputStyle: 'expanded'}).on("error", notify.onError()))
-		.pipe(gulp.dest('app/css'))
-		.pipe(browserSync.reload({stream: true}))
+gulp.task('sass', function () {
+    return gulp.src('app/sass/*.+(sass|scss)')
+        .pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
+        .pipe(gulp.dest('app/css'))
+        .pipe(browserSync.reload({ stream: true }))
 });
 
-gulp.task('browser-sync', function() {
-	browserSync({
-		server: {
-			baseDir: 'app'
-		},
-		notify: false
-	});
+gulp.task('browser-sync', function () {
+    browserSync({
+        server: {
+            baseDir: 'app'
+        },
+        notify: false
+    });
 });
 
 gulp.task('gcmq', function () {
     gulp.src('app/css/main.css')
         .pipe(gcmq())
-        .pipe(gulp.dest('app/css'));
+        .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', gulp.parallel('sass', 'browser-sync', function() {
+gulp.task('dev', gulp.parallel('sass', 'browser-sync', function () {
     gulp.watch('app/sass/**/*.+(sass|scss)', gulp.parallel('sass'));
     gulp.watch('app/*.html').on('change', browserSync.reload);
     gulp.watch('app/js/*.js').on('change', browserSync.reload);
@@ -77,6 +93,6 @@ gulp.task('watch', gulp.parallel('sass', 'browser-sync', function() {
 // 	gulp.watch('app/*.html', browserSync.reload);
 //     gulp.watch('app/js/*.js', browserSync.reload);
 // });
- 
+
 //нужны для конечной сборки:
 //autoprefixer, minImage, minCss
