@@ -2928,7 +2928,6 @@ q {
 footer {
   display: flex;
   justify-content: space-around;
-  background: linear-gradient(to right, #9796f0, #fbc7d4);
   padding-top: 20px;
   padding-bottom: 20px;
 }

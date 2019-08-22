@@ -122,16 +122,16 @@ window.onload = function () {
                     for (let i = 1; i < 4; i += 2)
                         teamProfiles[i].classList.add(animationMods[5]);
                 }
-            }  
-            if (document.documentElement.clientWidth > 1453452){ //УЧЕСТЬ АДАПТИВНОСТЬ И ИЗМЕНЯЮЩИЕСЯ КООРДИНАТЫ БЛОКОВ!!!
+            }
+            if (document.documentElement.clientWidth > 1453452) { //УЧЕСТЬ АДАПТИВНОСТЬ И ИЗМЕНЯЮЩИЕСЯ КООРДИНАТЫ БЛОКОВ!!!
                 //if (positionY >= 3600) {                                //начинаем раздвигать круги в секции 5
-                    if (positionY >= 3600) {
+                if (positionY >= 3600) {
                     let j = 6;
                     for (let i = 0; i < 4; i++) {
                         circles[i].classList.add(animationMods[j]);
                         j++;
                     }
-                }   
+                }
             }                                                     //заканчиваем теампрофили                                                                //заканчиваем с кругами в секции 5
         }
         window.addEventListener('scroll', watchScroll);
