@@ -21,4 +21,22 @@ window.addEventListener('load', function () {
 			})
 		})
 	})
+
+	//button pageUP
+	const pageUp = this.document.querySelector('.pageUp')
+	const header = this.document.querySelector('header')
+
+	this.window.addEventListener('scroll', function () {
+		if (this.pageYOffset > 800)
+			pageUp.style.display = 'block'
+		else
+			pageUp.style.display = 'none'
+	})
+
+	pageUp.addEventListener('click', function () {
+		header.scrollIntoView({
+			behavior: "smooth",
+			block: "start"
+		})
+	})
 })

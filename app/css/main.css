@@ -750,6 +750,35 @@ body {
   cursor: pointer;
 }
 
+.pageUp {
+  display: none;
+  position: fixed;
+  width: 70px;
+  height: 50px;
+  background: #9428D6FF;
+  opacity: 0.4;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin: 0px 30px 30px 0px;
+  border-radius: 10px;
+  font-size: 46px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 66px;
+  cursor: pointer;
+  transition: opacity .2s, color .2s;
+}
+
+.pageUp:hover {
+  opacity: .7;
+  color: #f39c12;
+}
+
+.pageUp:active {
+  opacity: .4;
+}
+
 header {
   background: url(../img/headerbg.png) no-repeat;
 }
@@ -783,6 +812,12 @@ header {
   padding-top: 85px;
 }
 
+@media screen and (max-width: 960px) {
+  .menuwrapper {
+    align-items: flex-start;
+  }
+}
+
 .logo {
   opacity: 0;
 }
@@ -808,14 +843,62 @@ header {
   }
 }
 
+@media screen and (max-width: 960px) {
+  .menu {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .menu {
+    z-index: 2;
+  }
+}
+
 .menu ul {
   display: flex;
   justify-content: space-between;
 }
 
+@media screen and (max-width: 960px) {
+  .menu ul {
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .menu ul {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .menu ul {
+    width: 100%;
+  }
+}
+
 .menu li {
   font-family: 'OpenSans-SemiBold';
   font-size: 0.9rem;
+}
+
+@media screen and (max-width: 960px) {
+  .menu li {
+    padding: 30px 20px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .menu li {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .menu li:hover {
+    border: 1px solid #f39c12;
+  }
 }
 
 .menu a {
@@ -824,6 +907,12 @@ header {
 
 .menu-link:hover {
   color: #000;
+}
+
+@media screen and (max-width: 960px) {
+  .tt {
+    display: none;
+  }
 }
 
 .mobMenu {
