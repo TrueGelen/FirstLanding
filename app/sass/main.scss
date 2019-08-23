@@ -1243,25 +1243,65 @@ q {
 }
 
 .wrapTarif {
+	position: relative;
 	display: flex;
 	justify-content: space-between;
-	border: solid 1px #88E2E6FF;
+	//border: solid 1px #88E2E6FF;
+	//border: solid 1px red;
 
-	@include lg(border, none);
-	@include lg(margin-right, 15%);
-	@include md(margin-right, 10%);
-	@include sm(margin-right, 4%);
-	@include xs(margin-right, 0%);
+	@include lg(height, 411px);
+	@include lg(flex-basis, 70%);
+	@include lg(justify-content, center);
+
+	&_btn{
+		display: block;
+		position: absolute;
+		font-size: 40px;
+		color: $iconColor4;
+		text-align: center;
+		line-height: 125px;
+		width: 15%;
+		height: 30%;	
+		top: 50%;
+		transform: translate(0%, -50%);
+		border-radius: 20px;
+		transition: background .2s;
+
+		@include sm(display, none);
+
+		&:hover{
+			background: #c2e9fb;
+		}
+
+		&:active{
+			background:#fff;
+		}
+		
+		&-prev{
+			@extend .wrapTarif_btn;
+			left: 8%;
+		}
+
+		&-next{
+			@extend .wrapTarif_btn;
+			left: 78%;
+
+			@include sm(left, auto);
+			@include sm(right, 7%);
+		}
+	}
 
 	&_item {
 		position: relative;
-		display: none;
+		display: flex;
 		flex-flow: column nowrap;
 		width: 248px;
 		align-items: center;
+		border: solid 1px #88E2E6FF;
+		margin-left: 5px;
 
-		//@include lg(position, absolute);
-		@include lg(flex-basis, 70%);
+		@include lg(position, absolute);
+		@include lg(display, none);
 
 		&-show{
 			display: flex;
@@ -1271,10 +1311,8 @@ q {
 
 			& .wrapTarif_item-p-mod1{
 				background: #fafafa;
-				// background: #000;
 				text-align: center;
 				width: 101%;
-				// width: ;
 			}
 			
 			&::after {
@@ -1300,11 +1338,6 @@ q {
 				width: 101%;
 				z-index: -1;
 			}
-		}
-
-		&-mod {
-			border-left: solid 1px #88E2E6FF;
-			border-right: solid 1px #88E2E6FF;
 		}
 		
 		&-title1 {
@@ -1337,6 +1370,36 @@ q {
 				text-align: center;
 			}
 		}
+	}
+}
+
+.sliderBtn-tarifSM{			
+	display: block;
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	border: 2px solid #e6e6e6;
+	text-align: center;
+	line-height: 35px;
+	top: -60px;
+
+	&-prev{
+		@extend .sliderBtn-tarifSM;
+		left: 42.5%;
+	}
+
+	&-next{
+		@extend .sliderBtn-tarifSM;
+		left: calc(42.5% + 45px);
+	}
+
+	&:hover{
+		cursor: pointer;
+		color: $iconColor4;
+	}
+
+	&:active{
+		color: $iconColor3;
 	}
 }
 

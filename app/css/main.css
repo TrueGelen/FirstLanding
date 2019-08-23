@@ -2638,52 +2638,97 @@ q {
 }
 
 .wrapTarif {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  border: solid 1px #88E2E6FF;
 }
 
 @media screen and (max-width: 1100px) {
   .wrapTarif {
-    border: none;
+    height: 411px;
   }
 }
 
 @media screen and (max-width: 1100px) {
   .wrapTarif {
-    margin-right: 15%;
+    flex-basis: 70%;
   }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1100px) {
   .wrapTarif {
-    margin-right: 10%;
+    justify-content: center;
+  }
+}
+
+.wrapTarif_btn, .wrapTarif_btn-prev, .wrapTarif_btn-next {
+  display: block;
+  position: absolute;
+  font-size: 40px;
+  color: #f39c12;
+  text-align: center;
+  line-height: 125px;
+  width: 15%;
+  height: 30%;
+  top: 50%;
+  transform: translate(0%, -50%);
+  border-radius: 20px;
+  transition: background .2s;
+}
+
+@media screen and (max-width: 780px) {
+  .wrapTarif_btn, .wrapTarif_btn-prev, .wrapTarif_btn-next {
+    display: none;
+  }
+}
+
+.wrapTarif_btn:hover, .wrapTarif_btn-prev:hover, .wrapTarif_btn-next:hover {
+  background: #c2e9fb;
+}
+
+.wrapTarif_btn:active, .wrapTarif_btn-prev:active, .wrapTarif_btn-next:active {
+  background: #fff;
+}
+
+.wrapTarif_btn-prev {
+  left: 8%;
+}
+
+.wrapTarif_btn-next {
+  left: 78%;
+}
+
+@media screen and (max-width: 780px) {
+  .wrapTarif_btn-next {
+    left: auto;
   }
 }
 
 @media screen and (max-width: 780px) {
-  .wrapTarif {
-    margin-right: 4%;
-  }
-}
-
-@media screen and (max-width: 560px) {
-  .wrapTarif {
-    margin-right: 0%;
+  .wrapTarif_btn-next {
+    right: 7%;
   }
 }
 
 .wrapTarif_item {
   position: relative;
-  display: none;
+  display: flex;
   flex-flow: column nowrap;
   width: 248px;
   align-items: center;
+  border: solid 1px #88E2E6FF;
+  margin-left: 5px;
 }
 
 @media screen and (max-width: 1100px) {
   .wrapTarif_item {
-    flex-basis: 70%;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .wrapTarif_item {
+    display: none;
   }
 }
 
@@ -2723,11 +2768,6 @@ q {
   z-index: -1;
 }
 
-.wrapTarif_item-mod {
-  border-left: solid 1px #88E2E6FF;
-  border-right: solid 1px #88E2E6FF;
-}
-
 .wrapTarif_item-title1 {
   font-family: 'opensans-bold';
   text-transform: uppercase;
@@ -2757,6 +2797,34 @@ q {
   background: #fafafa;
   width: 100%;
   text-align: center;
+}
+
+.sliderBtn-tarifSM, .sliderBtn-tarifSM-prev, .sliderBtn-tarifSM-next {
+  display: block;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #e6e6e6;
+  text-align: center;
+  line-height: 35px;
+  top: -60px;
+}
+
+.sliderBtn-tarifSM-prev {
+  left: 42.5%;
+}
+
+.sliderBtn-tarifSM-next {
+  left: calc(42.5% + 45px);
+}
+
+.sliderBtn-tarifSM:hover, .sliderBtn-tarifSM-prev:hover, .sliderBtn-tarifSM-next:hover {
+  cursor: pointer;
+  color: #f39c12;
+}
+
+.sliderBtn-tarifSM:active, .sliderBtn-tarifSM-prev:active, .sliderBtn-tarifSM-next:active {
+  color: #999999;
 }
 
 .tarifBtn {
