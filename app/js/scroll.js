@@ -24,7 +24,6 @@ window.addEventListener('load', function () {
 
 	//function for adding animate classes
 	let watchAnimateScroll = function () {
-		//console.log("in watchAnimateScroll")
 		let positionY = this.pageYOffset;
 		//for progress lines 
 		if (positionY >= progressLinesCoordinates[0])
@@ -66,6 +65,12 @@ window.addEventListener('load', function () {
 		teamProfiles.forEach((item) => {
 			item.style.visibility = 'visible';
 		})
+
+		//for circles
+		circles.forEach(item => {
+			console.log
+			item.style.left = '0';
+		})
 	}
 
 	//choosing the function to start
@@ -73,5 +78,37 @@ window.addEventListener('load', function () {
 		window.addEventListener('scroll', watchAnimateScroll)
 	else
 		watchNonAnimateScroll()
+
+	//choosing the listener on change resize
+	window.addEventListener('resize', function () {
+		if (window.innerWidth <= 780) {
+			removeAnimateClasses()
+			this.window.removeEventListener('scroll', watchAnimateScroll)
+			watchNonAnimateScroll()
+		} else {
+			removeAnimateClasses()
+			watchAnimateScroll()
+			window.addEventListener('scroll', watchAnimateScroll)
+		}
+	});
+
+	//clean classes on change resize
+	function removeAnimateClasses() {
+		//for progress lines
+		progressLines.forEach((item, i) => {
+			item.classList.remove(nonanimationPL[i])
+			item.classList.remove(animationModsPL[i])
+		})
+
+		//for team profiles
+		teamProfiles.forEach((item) => {
+			item.style.visibility = 'hidden';
+		})
+
+		circles.forEach((item, i) => {
+			item.classList.remove(animationModsC[i])
+			item.style.left = '43%';
+		})
+	}
 
 })

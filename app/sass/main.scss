@@ -757,7 +757,7 @@ q {
 	padding-bottom: 13px;
 	@include lg(padding-bottom, 0px);
 	@include md(margin-bottom, -20px);
-	@include sm(margin-bottom, -80px);
+	@include sm(margin-bottom, -140px);
 	@include xs(margin-bottom, -170px);
 }
 
@@ -928,8 +928,8 @@ q {
 
 	@include md(padding-top, 160px);
 	@include md(padding-bottom, 45px);
-	@include sm(padding-top, 180px);
-	@include sm(padding-bottom, 55px);
+	@include sm(padding-top, 320px);
+	@include sm(padding-bottom, 80px);
 
 	@include xs(padding-top, 280px);
 	@include xs(padding-bottom, 70px);
@@ -949,7 +949,7 @@ q {
 		@include md(top, 25px);
 		@include md(height, 55px);
 
-		@include sm(top, 89px);
+		@include sm(top, 220px);
 		@include sm(height, 43px);
 
 		@include xs(top, 197px);		

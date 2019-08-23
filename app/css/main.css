@@ -1794,7 +1794,7 @@ q {
 
 @media screen and (max-width: 780px) {
   .section4 {
-    margin-bottom: -80px;
+    margin-bottom: -140px;
   }
 }
 
@@ -2097,13 +2097,13 @@ q {
 
 @media screen and (max-width: 780px) {
   .section5 {
-    padding-top: 180px;
+    padding-top: 320px;
   }
 }
 
 @media screen and (max-width: 780px) {
   .section5 {
-    padding-bottom: 55px;
+    padding-bottom: 80px;
   }
 }
 
@@ -2150,7 +2150,7 @@ q {
 
 @media screen and (max-width: 780px) {
   .section5::before {
-    top: 89px;
+    top: 220px;
   }
 }
 
