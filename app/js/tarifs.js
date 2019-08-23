@@ -1,8 +1,10 @@
 window.addEventListener('load', function () {
 	this.console.log("script from tarifs.js is working")
 
+	//get tarifs
 	const tarifArr = this.document.querySelectorAll('.section6 .container .sec6Wrap2 .wrapTarif .wrapTarif_item')
 
+	//get buttons and set them style
 	const chevronLeftLG = this.document.querySelector('.section6 .container .sec6Wrap2 .wrapTarif .wrapTarif_btn-prev')
 	const chevronRightLG = this.document.querySelector('.section6 .container .sec6Wrap2 .wrapTarif .wrapTarif_btn-next')
 	chevronLeftLG.style.display = 'none'
@@ -13,10 +15,14 @@ window.addEventListener('load', function () {
 	chevronLeftSM.style.display = 'none'
 	chevronRightSM.style.display = 'none'
 
+	//push button into two array
 	const prevArr = [chevronLeftLG, chevronLeftSM]
 	const nextArr = [chevronRightLG, chevronRightSM]
+
+	//GLOBAL COUNTER
 	let counter = 1;
 
+	//function for start styles and setting event listeners
 	function starter() {
 		if (this.innerWidth <= 1100 && this.innerWidth > 780) {
 			chevronLeftSM.style.display = 'none'
@@ -49,7 +55,9 @@ window.addEventListener('load', function () {
 			})
 		})
 	}
+	starter()
 
+	//function for work tarif slider
 	function checker(toggle) {
 		if (toggle) {
 			if ((counter + 1) >= tarifArr.length) {
@@ -69,8 +77,8 @@ window.addEventListener('load', function () {
 			}
 		}
 	}
-	starter()
 
+	//listener for changing styles on resize
 	this.window.addEventListener('resize', function () {
 		starter()
 	})

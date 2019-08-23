@@ -22,9 +22,11 @@ window.addEventListener('load', function () {
 
 	//behavior of menu on resize
 	this.window.addEventListener('resize', function () {
-		this.console.log('this.pageXOffset', this.innerWidth)
-		if (this.innerWidth > 960)
+		if (this.innerWidth > 960) {
 			menu.style.display = 'block'
+			headerTitle.style.visibility = 'visible'
+			btn.style.visibility = 'visible'
+		}
 		else
 			menu.style.display = 'none'
 	})

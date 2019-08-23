@@ -1,11 +1,12 @@
 window.addEventListener('load', function () {
 	this.console.log("script from scrollTo.js is working")
 	//getting menu items
-	const menuItems = this.document.querySelectorAll('header .container .menuwrapper .menu .menu-link')
+	const links = this.document.querySelectorAll('header .container .menuwrapper .menu .menu-link')
+	const menuItems = this.document.querySelectorAll('header .container .menuwrapper .menu ul .liForJs')
 	let arrayOfElem = [];
 
 	//getting elements to which we need to scroll
-	menuItems.forEach(item => {
+	links.forEach(item => {
 		let id = item.getAttribute('href').replace('#', '')
 		let elem = document.querySelector(`#${id}`)
 		arrayOfElem.push(elem)

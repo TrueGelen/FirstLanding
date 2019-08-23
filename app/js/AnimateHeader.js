@@ -9,7 +9,6 @@ window.addEventListener('load', function () {
 
 	//function which sets classes for the appearance of the header elements
 	function setClassesForHeader() {
-		console.log("setClassesFfrHeader")
 		logo.classList.add('fadeIn'); //add an animation class for appearance of the logo 
 		menu.classList.add('fadeIn'); //add an animation class for appearance of the menu
 		firstBtn.classList.add('fadeIn');   //add an animation class for appearance of the button
