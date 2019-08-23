@@ -18,17 +18,17 @@
 				<a class="logo" href="#"><img src="./dist/img/logo.png" alt="logo"></a>
 				<nav class="menu">
 					<ul>
-						<li><a class="menu-link" href="#">about</a></li>
+						<li><a class="menu-link" href="#about">about</a></li>
 						<li>\\</li>
-						<li><a class="menu-link" href="#">team</a></li>
+						<li><a class="menu-link" href="#team">team</a></li>
 						<li>\\</li>
-						<li><a class="menu-link" href="#">services</a></li>
+						<li><a class="menu-link" href="#services">services</a></li>
 						<li>\\</li>
-						<li><a class="menu-link" href="#">works</a></li>
+						<li><a class="menu-link" href="#works">works</a></li>
 						<li>\\</li>
-						<li><a class="menu-link" href="#">blog</a></li>
+						<li><a class="menu-link" href="#video">video</a></li>
 						<li>\\</li>
-						<li><a class="menu-link" href="#">contact</a></li>
+						<li><a class="menu-link" href="#contact">contact</a></li>
 					</ul>
 				</nav>
 				<div class="mobMenu">
@@ -42,14 +42,14 @@
 				<h1>Design / Branding / WordPres</h1>
 				<div class="mainTitle-sub2">we make great ideas happen</div>
 			</div>
-			<a class="firstBtn">learn more</a>
+			<a class="firstBtn noselect">learn more</a>
 		</div>
 	</header>
-
+	<!-- ------------------- section 2 ---------------------------- -->
 	<section class="section2">
 		<div class="container">
 			<div class="aboutWrap1">
-				<div class="about">
+				<div id="about" class="about">
 					<div class="about_title">about</div>
 					<div class="about_p">
 						Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
@@ -116,7 +116,7 @@
 			</div>
 		</div>
 	</section>
-
+	<!-- ------------------- section 3 ---------------------------- -->
 	<section class="section3 section-mod">
 		<div class="container">
 			<div class="section3_wrapper">
@@ -126,10 +126,10 @@
 			</div>
 		</div>
 	</section>
-
+	<!-- ------------------- section 4 ---------------------------- -->
 	<section class="section4">
 		<div class="container">
-			<div class="titleText">
+			<div id="team" class="titleText">
 				<div class="titleText_title">team</div>
 				<div class="titleText_p">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
 					auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus
@@ -203,7 +203,7 @@
 			</div>
 		</div>
 	</section>
-
+	<!-- ------------------- section 5 ---------------------------- -->
 	<section class="section5">
 		<div class="container">
 			<div class="circlesWrap">
@@ -238,11 +238,11 @@
 			</div>
 		</div>
 	</section>
-
+	<!-- ------------------- section 6 ---------------------------- -->
 	<section class="section6">
 		<div class="container">
 			<div class="sec6Wrap1">
-				<div class="titleText">
+				<div id="services" class="titleText">
 					<div class="titleText_title">service</div>
 					<div class="titleText_p">
 						Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
@@ -335,11 +335,11 @@
 			</div>
 		</div>
 	</section>
-
+	<!-- ------------------- section 7 ---------------------------- -->
 	<section class="section7">
 		<div class="container">
 			<div class="sec7Wrap1">
-				<div class="titleText">
+				<div id="works" class="titleText">
 					<div class="titleText_title">portfolio</div>
 					<div class="titleText_p">
 						Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
@@ -366,10 +366,10 @@
 			</div>
 		</div>
 	</section>
-
+	<!-- ------------------- section 8 ---------------------------- -->
 	<section cass="section8">
 		<div class="container">
-			<div class="titleText">
+			<div id="video" class="titleText">
 				<div class="titleText_title">the video</div>
 				<div class="titleText_p">
 					Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
@@ -382,10 +382,10 @@
 			</div>
 		</div>
 	</section>
-
+	<!-- ------------------- section 9 ---------------------------- -->
 	<section class="section9">
 		<div class="container">
-			<div class="titleText">
+			<div id="contact" class="titleText">
 				<div class="titleText_title">contact</div>
 				<div class="titleText_p">
 					Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
@@ -398,7 +398,7 @@
 					<input type="text" name="Name" placeholder="Your Name">
 					<input type="text" name="Emal" placeholder="Email">
 					<textarea rows="5" cols="500" name="Message" placeholder="Message"></textarea>
-					<a href=""></a>
+					<a class="btnSubmit noselect">submit</a>
 				</from>
 				<div class="contactInfoWrapper">
 					<p class="contactTitle">contact info</p>
@@ -430,11 +430,11 @@
 			</div>
 		</div>
 	</section>
-
+	<!-- ------------------- section 10 ---------------------------- -->
 	<section class="section10">
 		<div calss="map" style="width: 600px; height: 400px"></div>
 	</section>
-
+	<!-- ------------------- footer ---------------------------- -->
 	<footer>
 		<div class="footerText">
 			<i class="icon-copyright footer-copyright"></i>
@@ -541,5 +541,6 @@
 <!-- <script src="app/js/anim.js"></script> -->
 <script src="app/js/AnimateHeader.js"></script>
 <script src="app/js/scroll.js"></script>
+<script src="app/js/scrollTo.js"></script>
 
 </html>

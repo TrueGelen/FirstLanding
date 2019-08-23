@@ -608,6 +608,22 @@ body {
   max-width: 1920px;
 }
 
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 .overlay {
   top: 0;
   left: 0;
@@ -2745,7 +2761,7 @@ q {
   text-align: center;
 }
 
-/*------------- Section 8 -----------------*/
+/*------------- Section8 Section 8 -----------------*/
 .videoWrapper {
   margin-top: 80px;
   position: relative;
@@ -2845,6 +2861,27 @@ q {
   font-family: "OpenSans-Light";
   color: #808080;
   font-size: 14px;
+}
+
+.btnSubmit {
+  align-self: flex-start;
+  font-family: 'opensans-semibold';
+  text-transform: uppercase;
+  font-size: 14px;
+  border: 2px solid #f39c12;
+  padding: 10px 30px;
+  margin-top: 15px;
+  color: #0d0d0d;
+  transition: background .1s;
+}
+
+.btnSubmit:hover {
+  cursor: pointer;
+  background: #c2e9fb;
+}
+
+.btnSubmit:active {
+  background: #a1c4fd;
 }
 
 .contactInfoWrapper {

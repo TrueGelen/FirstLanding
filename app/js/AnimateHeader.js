@@ -42,7 +42,6 @@ window.addEventListener('load', function () {
 	let afterAnimate = function () {
 		console.log("afterAnimate")
 		let about = document.querySelector('.section2 .container .aboutWrap1 .about');  //get a desired object
-		let a = about.getClientRects();
 		about.scrollIntoView({
 			behavior: "smooth",
 			block: "start"

@@ -105,7 +105,7 @@ async function removeAll() {
 
 gulp.task('dev', gulp.parallel('sass', 'browser-sync', function () {
     gulp.watch('app/sass/**/*.+(sass|scss)', gulp.parallel('sass'));
-    gulp.watch('/*.html').on('change', browserSync.reload);
+    gulp.watch('./*.html').on('change', browserSync.reload);
     gulp.watch('app/js/*.js').on('change', browserSync.reload);
 }));
 
