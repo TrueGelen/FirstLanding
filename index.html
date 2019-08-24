@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="/app/css/main.css">
 	<link rel="stylesheet" href="app/owl/dist/assets/owl.carousel.css">
 	<link rel="stylesheet" href="app/owl/dist/assets/owl.theme.default.css">
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=7a7c4b4e-ec22-470f-800a-ea1c58880407&lang=ru_RU"
+		type="text/javascript">
+		</script>
 </head>
 
 <body>
@@ -305,7 +308,7 @@
 						<div class="wrapTarif_item-p wrapTarif_item-p-mod">third description</div>
 						<div class="wrapTarif_item-p wrapTarif_item-p-mod1">fourth description</div>
 						<div class="tarifBtnWrapper">
-							<a href="" class="tarifBtn">purchase</a>
+							<a href="#ajsd" class="tarifBtn noselect">purchase</a>
 						</div>
 					</div>
 					<!-- <div class="wrapTarif_item wrapTarif_item-mod"> -->
@@ -317,7 +320,7 @@
 						<div class="wrapTarif_item-p wrapTarif_item-p-mod">third description</div>
 						<div class="wrapTarif_item-p wrapTarif_item-p-mod1">fourth description</div>
 						<div class="tarifBtnWrapper">
-							<a href="" class="tarifBtn">purchase</a>
+							<a href="#asd" class="tarifBtn noselect">purchase</a>
 						</div>
 					</div>
 					<div class="wrapTarif_item">
@@ -328,7 +331,7 @@
 						<div class="wrapTarif_item-p wrapTarif_item-p-mod">third description</div>
 						<div class="wrapTarif_item-p wrapTarif_item-p-mod1">fourth description</div>
 						<div class="tarifBtnWrapper">
-							<a href="" class="tarifBtn">purchase</a>
+							<a href="#ad" class="tarifBtn noselect">purchase</a>
 						</div>
 					</div>
 				</div>
@@ -347,17 +350,13 @@
 				</div>
 				<div class="slider">
 					<div class="imgs owl-carousel owl-theme">
-						<!-- <div class="some"></div>
-						<div class="some"></div>
-						<div class="some"></div>
-						<div class="some"></div> -->
 						<img src="./dist/img/digital atwork/res/rowan-heuvel.jpg" alt="atwork">
 						<img src="./dist/img/digital atwork/res/scott-webb.jpg" alt="atwork">
 						<img src="./dist/img/digital atwork/res/stephan-bechert.jpg" alt="atwork">
 						<img src="./dist/img/digital atwork/res/joshua-coleman.jpg" alt="atwork">
 						<img src="./dist/img/digital atwork/res/gus-ruballo.jpg" alt="atwork">
 					</div>
-					<div class="buttonsWrap">
+					<div class="buttonsWrap noselect">
 						<i id="prev" class="icon-chevron-left sliderBtn sliderBtn-prev owl-prev"></i>
 						<i id="next" class="icon-chevron-right sliderBtn sliderBtn-next"></i>
 					</div>
@@ -430,9 +429,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
-	<section class="section10">
-		<div calss="map" style="width: 600px; height: 400px"></div>
+		<div class="mapcontainer">
+			<div id="map"></div>
+		</div>
 	</section>
 	<footer>
 		<div class="footerText">
@@ -441,7 +440,7 @@
 			<p>|</p>
 			<p>designed by bigpsfan & metrothemes</p>
 		</div>
-		<div class="footerLogos">
+		<div class="footerLogos noselect">
 			<i class="icon-twitter footer-icon"></i>
 			<i class="icon-facebook footer-icon"></i>
 			<i class="icon-linkedin2 footer-icon"></i>
@@ -463,6 +462,6 @@
 <script src="app/js/scrollTo.js"></script>
 <script src="app/js/responsiveMenu.js"></script>
 <script src="app/js/tarifs.js"></script>
-<!-- <script src="app/js/map.js"></script> -->
+<script src="app/js/map.js"></script>
 
 </html>

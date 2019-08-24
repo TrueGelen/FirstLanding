@@ -12,7 +12,9 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin');
 
 const arrayOfcss = ['./app/css/normalize.css', './app/css/main.css'];
-const arrayOfJs = ['./app/js/anim.js'];
+const arrayOfJs = ['app/js/jquery.min.js', 'app/owl/dist/owl.carousel.min.js', 'app/js/settingOwl.js',
+    'app/js/AnimateHeader.js', 'app/js/scroll.js', 'app/js/scrollTo.js', 'app/js/responsiveMenu.js',
+    'app/js/tarifs.js', 'app/js/map.js'];
 
 gulp.task('concatCss', function () {
     console.log("im in concatcss");

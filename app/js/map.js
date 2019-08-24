@@ -1,32 +1,18 @@
-/* window.addEventListener('load', function () {
-	//	ymaps.ready(init);
-	function init() {
-		// Создание карты.    
-		var myMap = new ymaps.Map("map", {
-			// Координаты центра карты.
-			// Порядок по умолчанию: «широта, долгота».
-			// Чтобы не определять координаты центра карты вручную,
-			// воспользуйтесь инструментом Определение координат.
-			center: [54.17, 45.21],
-			// Уровень масштабирования. Допустимые значения:
-			// от 0 (весь мир) до 19.
-			zoom: 16
-		});
-	}
-	init()
-}) */
-
+//window.addEventListener('load', function () {
+this.console.log("script from map.js is working")
 ymaps.ready(init);
 function init() {
-	// Создание карты.    
 	var myMap = new ymaps.Map("map", {
-		// Координаты центра карты.
-		// Порядок по умолчанию: «широта, долгота».
-		// Чтобы не определять координаты центра карты вручную,
-		// воспользуйтесь инструментом Определение координат.
-		center: [54.17, 45.21],
-		// Уровень масштабирования. Допустимые значения:
-		// от 0 (весь мир) до 19.
-		zoom: 16
+		center: [54.17221957, 45.21519050],
+		zoom: 16,
+		controls: []
 	});
+
+	myMap.geoObjects.add(new ymaps.Placemark([54.17221957, 45.21519050], {
+		balloonContent: 'Он тут сидел, когда это писал',
+		iconCaption: 'Gelen'
+	}))
+
+	myMap.behaviors.disable(['scrollZoom', 'drag'])
 }
+//})
