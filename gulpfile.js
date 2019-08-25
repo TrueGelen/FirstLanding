@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     uglify = require('gulp-uglify'),
     del = require('del'),
-    imagemin = require('gulp-imagemin');
+    imagemin = require('gulp-imagemin'),
+    babel = require('gulp-babel');
 
 const arrayOfcss = ['./app/css/normalize.css', './app/css/main.css'];
 const arrayOfJs = ['app/js/jquery.min.js', 'app/owl/dist/owl.carousel.min.js', 'app/js/settingOwl.js',
@@ -32,8 +33,17 @@ gulp.task('concatJS', function () {
     console.log("im in concatcss");
     return gulp.src(arrayOfJs)
         .pipe(concat('index.js'))
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(uglify({ toplevel: true }))
         .pipe(gulp.dest('./dist/js'));
+});
+
+gulp.task('compress', function () {
+    return gulp.src('./dist/js/indexBabel.js')
+        .pipe(uglify({ toplevel: true }))
+        .pipe(gulp.dest('./dist/js/indexUglify.js'))
 });
 
 /* It's principal settings in smart grid project */
@@ -100,10 +110,10 @@ gulp.task('imageMin', function () {
         .pipe(gulp.dest('dist/img/'))
 });
 
-async function removeAll() {
-    const deletedPaths = await del(['dist']);
+gulp.task('cleanDist', async function () {
+    const deletedPaths = await del(['dist/**', '!dist/img', '!dist/index.html']);
     console.log('Deleted files and directories:\n', deletedPaths.join('\n'));
-}
+})
 
 gulp.task('dev', gulp.parallel('sass', 'browser-sync', function () {
     gulp.watch('app/sass/**/*.+(sass|scss)', gulp.parallel('sass'));
@@ -111,4 +121,4 @@ gulp.task('dev', gulp.parallel('sass', 'browser-sync', function () {
     gulp.watch('app/js/*.js').on('change', browserSync.reload);
 }));
 
-gulp.task('build', gulp.series(removeAll, 'sass', 'concatCss'));
+gulp.task('build', gulp.series("cleanDist", 'sass', 'concatCss', 'concatJS'));
