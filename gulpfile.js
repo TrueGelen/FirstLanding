@@ -4,47 +4,16 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     smartgrid = require('smart-grid'),
     gcmq = require('gulp-group-css-media-queries'),
-    concat = require('gulp-concat'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css'),
-    uglify = require('gulp-uglify'),
     del = require('del'),
-    imagemin = require('gulp-imagemin'),
-    babel = require('gulp-babel');
+    gulpif = require('gulp-if'),
+    sourcemaps = require('gulp-sourcemaps'),
+    webpack = require('webpack-stream');
 
-const arrayOfcss = ['./app/css/normalize.css', './app/css/main.css'];
-const arrayOfJs = ['app/js/jquery.min.js', 'app/owl/dist/owl.carousel.min.js', 'app/js/settingOwl.js',
-    'app/js/AnimateHeader.js', 'app/js/scroll.js', 'app/js/scrollTo.js', 'app/js/responsiveMenu.js',
-    'app/js/tarifs.js', 'app/js/map.js'];
-
-gulp.task('concatCss', function () {
-    console.log("im in concatcss");
-    return gulp.src(arrayOfcss)
-        .pipe(concat('styles.css'))
-        .pipe(gcmq())
-        .pipe(autoprefixer({
-            cascade: false
-        }))
-        .pipe(cleanCSS({ level: 2 }))
-        .pipe(gulp.dest('./dist/css'));
-});
-
-gulp.task('concatJS', function () {
-    console.log("im in concatcss");
-    return gulp.src(arrayOfJs)
-        .pipe(concat('index.js'))
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
-        .pipe(uglify({ toplevel: true }))
-        .pipe(gulp.dest('./dist/js'));
-});
-
-gulp.task('compress', function () {
-    return gulp.src('./dist/js/indexBabel.js')
-        .pipe(uglify({ toplevel: true }))
-        .pipe(gulp.dest('./dist/js/indexUglify.js'))
-});
+let isDev = false
+let isProd = !isDev
+let isSync = false
 
 /* It's principal settings in smart grid project */
 var settings = {
@@ -70,55 +39,105 @@ var settings = {
         xs: {
             width: '560px',
             fields: '15px'
+        },
+        xxs: {
+            width: '420px',
+            fields: '15px'
         }
     }
 };
 
 smartgrid('./app/sass', settings);
 
-gulp.task('sass', function () {
-    return gulp.src('app/sass/*.+(sass|scss)')
+//for getting an actual flag isDev
+function getWebpackConfig(isDev) {
+    let webpackConfig = {
+        output: {
+            filename: 'build.js'
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.m?js$/,
+                    loader: 'babel-loader',
+                    exclude: /(node_modules|bower_components)/
+                }
+            ]
+        },
+        mode: isDev ? 'development' : 'production',
+        devtool: isDev ? 'cheap-module-eval-source-map' : false,
+    }
+
+    return webpackConfig
+}
+
+gulp.task('js', function () {
+    return gulp.src('./app/js/main.js')
+        .pipe(webpack(getWebpackConfig(isDev)))
+        .pipe(gulp.dest('./dist/js'))
+        .pipe(gulpif(isSync, browserSync.stream()))
+});
+
+gulp.task('styles', function () {
+    //return gulp.src('app/sass/*.+(sass|scss)')
+    return gulp.src('app/sass/main.scss')
+        .pipe(gulpif(isDev, sourcemaps.init()))
         .pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
-        .pipe(gulp.dest('app/css'))
-        .pipe(browserSync.reload({ stream: true }))
+        .pipe(gcmq())
+        .pipe(gulpif(isProd, autoprefixer({
+            overrideBrowserslist: ["last 2 versions"],
+            cascade: false
+        })))
+        .pipe(gulpif(isProd, cleanCSS({ level: 2 })))
+        .pipe(gulpif(isDev, sourcemaps.write()))
+        .pipe(gulp.dest('dist/css'))
+        .pipe(gulpif(isSync, browserSync.reload({ stream: true })))
 });
 
 gulp.task('browser-sync', function () {
     browserSync({
         server: {
-            baseDir: './'
+            baseDir: './dist/'
         },
         notify: false
     });
 });
 
-
-//Не использую не устраивает сжатие.(лучше тут https://www.iloveimg.com/ru/compress-image)
-gulp.task('imageMin', function () {
-    gulp.src('app/img/**')
-        .pipe(imagemin([
-            imagemin.gifsicle({ interlaced: true }),
-            imagemin.jpegtran({ progressive: true }),
-            imagemin.optipng({ optimizationLevel: 5 }),
-            imagemin.svgo({
-                plugins: [
-                    { removeViewBox: true },
-                    { cleanupIDs: false }
-                ]
-            })
-        ]))
-        .pipe(gulp.dest('dist/img/'))
-});
-
 gulp.task('cleanDist', async function () {
-    const deletedPaths = await del(['dist/**', '!dist/img', '!dist/index.html']);
+    const deletedPaths = await del(['dist/**', '!dist/img', '!dist/fonts']);
     console.log('Deleted files and directories:\n', deletedPaths.join('\n'));
 })
 
-gulp.task('dev', gulp.parallel('sass', 'browser-sync', function () {
-    gulp.watch('app/sass/**/*.+(sass|scss)', gulp.parallel('sass'));
-    gulp.watch('./*.html').on('change', browserSync.reload);
-    gulp.watch('app/js/*.js').on('change', browserSync.reload);
-}));
+gulp.task('html', function () {
+    return gulp.src('./app/*.html')
+        .pipe(gulp.dest('./dist/'))
+        .pipe(gulpif(isSync, browserSync.stream()))
+})
 
-gulp.task('build', gulp.series("cleanDist", 'sass', 'concatCss', 'concatJS'));
+function devFlags(done) {
+    isSync = true
+    isDev = true
+    done()
+}
+
+function prodFlags(done) {
+    isSync = true
+    isDev = false
+    done()
+}
+
+function smallProd(done) {
+    isSync = false
+    isDev = false
+    done()
+}
+
+function watcher() {
+    gulp.watch('app/sass/**/*.+(sass|scss)', gulp.parallel('styles'))
+    gulp.watch('./app/*.html', gulp.parallel('html'))
+    gulp.watch('app/js/*.js', gulp.parallel('js'))
+}
+
+gulp.task('dev', gulp.series(devFlags, 'html', 'styles', 'js', gulp.parallel('browser-sync', watcher)))
+gulp.task('build', gulp.series('cleanDist', prodFlags, 'html', 'styles', 'js', gulp.parallel('browser-sync', watcher)))
+gulp.task('fast', gulp.series('cleanDist', smallProd, 'html', 'styles', 'js'))

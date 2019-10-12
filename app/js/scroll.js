@@ -1,5 +1,4 @@
 window.addEventListener('load', function () {
-	this.console.log("script from scroll.js is working")
 
 	//getting Progress line and their coordinates and setting their mods
 	const progressLines = document.querySelectorAll('.section2 .container .aboutWrap2 .skills .skills_it2 .skills_it2_pair .skills_it2_pair-line');
@@ -14,7 +13,7 @@ window.addEventListener('load', function () {
 
 	//getting team profiles and their coordinates and setting their mods
 	const teamProfiles = document.querySelectorAll('.section4 .container .teamprofiles .teamprofile');
-	teamProfilesCoordinate = teamProfiles[0].getBoundingClientRect().y - this.window.innerHeight + 430 + this.pageYOffset
+	const teamProfilesCoordinate = teamProfiles[0].getBoundingClientRect().y - this.window.innerHeight + 430 + this.pageYOffset
 	const animationModsTP = ['teamprofile-mod1', 'teamprofile-mod2']
 
 	//getting circles and their coordinates and setting their mods
@@ -24,7 +23,7 @@ window.addEventListener('load', function () {
 
 	//function for adding animate classes
 	let watchAnimateScroll = function () {
-		let positionY = this.pageYOffset;
+		let positionY = window.pageYOffset;
 		//for progress lines 
 		if (positionY >= progressLinesCoordinates[0])
 			progressLines[0].classList.add(animationModsPL[0])
@@ -54,7 +53,6 @@ window.addEventListener('load', function () {
 
 	//function for adding classes without animate
 	let watchNonAnimateScroll = function () {
-		console.log("in watchNonAnimateScroll")
 		//for progress lines
 		progressLines[0].classList.add(nonanimationPL[0])
 		progressLines[1].classList.add(nonanimationPL[1]);

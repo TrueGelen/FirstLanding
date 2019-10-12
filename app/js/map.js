@@ -1,5 +1,4 @@
 //window.addEventListener('load', function () {
-this.console.log("script from map.js is working")
 ymaps.ready(init);
 function init() {
 	var myMap = new ymaps.Map("map", {

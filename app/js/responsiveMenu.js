@@ -1,5 +1,4 @@
 window.addEventListener('load', function () {
-	console.log("script from responsiveMenu is working")
 
 	const mobMenu = document.querySelector('header .container .menuwrapper .mobMenu')
 	const menu = document.querySelector('header .container .menuwrapper .menu')

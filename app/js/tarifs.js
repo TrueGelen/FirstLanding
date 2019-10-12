@@ -1,6 +1,4 @@
 window.addEventListener('load', function () {
-	this.console.log("script from tarifs.js is working")
-
 	//get tarifs
 	const tarifArr = this.document.querySelectorAll('.section6 .container .sec6Wrap2 .wrapTarif .wrapTarif_item')
 
@@ -24,33 +22,36 @@ window.addEventListener('load', function () {
 
 	//function for start styles and setting event listeners
 	function starter() {
-		if (this.innerWidth <= 1100 && this.innerWidth > 780) {
+		if (window.innerWidth <= 1100 && window.innerWidth > 780) {
+			tarifArr[1].style.display = 'flex'
 			chevronLeftSM.style.display = 'none'
 			chevronRightSM.style.display = 'none'
-			chevronLeftLG.style.display = 'block'
-			chevronRightLG.style.display = 'block'
-		} else if (this.innerWidth <= 780) {
+			chevronLeftLG.style.display = 'inline-block'
+			chevronRightLG.style.display = 'inline-block'
+		} else if (window.innerWidth <= 780) {
+			tarifArr[1].style.display = 'flex'
 			chevronLeftLG.style.display = 'none'
 			chevronRightLG.style.display = 'none'
-			chevronLeftSM.style.display = 'block'
-			chevronRightSM.style.display = 'block'
+			chevronLeftSM.style.display = 'inline-block'
+			chevronRightSM.style.display = 'inline-block'
 		} else {
+			tarifArr[1].style.display = 'flex'
 			chevronLeftLG.style.display = 'none'
 			chevronRightLG.style.display = 'none'
-			chevronLeftSM.style.display = 'none'
-			chevronRightSM.style.display = 'none'
+			chevronLeftSM.style.display = 'inline-block'
+			chevronRightSM.style.display = 'inline-block'
 		}
 
 		prevArr.forEach((item) => {
 			item.addEventListener('click', function () {
-				tarifArr[counter].classList.remove('wrapTarif_item-show')
+				tarifArr[counter].style.display = 'none'
 				checker(false)
 			})
 		})
 
 		nextArr.forEach((item) => {
 			item.addEventListener('click', function () {
-				tarifArr[counter].classList.remove('wrapTarif_item-show')
+				tarifArr[counter].style.display = 'none'
 				checker(true)
 			})
 		})
@@ -62,18 +63,18 @@ window.addEventListener('load', function () {
 		if (toggle) {
 			if ((counter + 1) >= tarifArr.length) {
 				counter = 0
-				tarifArr[counter].classList.add('wrapTarif_item-show')
+				tarifArr[counter].style.display = 'flex'
 			} else {
 				counter++
-				tarifArr[counter].classList.add('wrapTarif_item-show')
+				tarifArr[counter].style.display = 'flex'
 			}
 		} else {
 			if ((counter - 1) < 0) {
 				counter = tarifArr.length - 1
-				tarifArr[counter].classList.add('wrapTarif_item-show')
+				tarifArr[counter].style.display = 'flex'
 			} else {
 				counter--
-				tarifArr[counter].classList.add('wrapTarif_item-show')
+				tarifArr[counter].style.display = 'flex'
 			}
 		}
 	}
