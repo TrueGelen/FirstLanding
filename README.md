@@ -1,5 +1,5 @@
 # FirstLanding
-h2 This is a training project.
+This is a training project.
 ---------------------------------
 ***Used technology stack:***
 *HTML
