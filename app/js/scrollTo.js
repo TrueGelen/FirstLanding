@@ -1,5 +1,4 @@
 window.addEventListener('load', function () {
-	this.console.log("script from scrollTo.js is working")
 	//getting menu items
 	const links = this.document.querySelectorAll('header .container .menuwrapper .menu .menu-link')
 	const menuItems = this.document.querySelectorAll('header .container .menuwrapper .menu ul .liForJs')
@@ -28,7 +27,7 @@ window.addEventListener('load', function () {
 	const header = this.document.querySelector('header')
 
 	this.window.addEventListener('scroll', function () {
-		if (this.pageYOffset > 800)
+		if (window.pageYOffset > 800)
 			pageUp.style.display = 'block'
 		else
 			pageUp.style.display = 'none'

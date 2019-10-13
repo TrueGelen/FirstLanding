@@ -1,5 +1,4 @@
 window.addEventListener('load', function () {
-	this.console.log("script from AnimateHeader.js is working")
 
 	//const logoAndMenu = document.querySelector('header .container .menuwrapper'); //get the logo and menu
 	const logo = document.querySelector('header .container .menuwrapper .logo'); //get only the logo

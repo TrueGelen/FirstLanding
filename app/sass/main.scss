@@ -1,3 +1,4 @@
+@import '_normalize';
 @import '_fonts';
 @import 'smart-grid';
 @import '_iconfonts';
@@ -119,27 +120,35 @@ header {
 	opacity: 0;
 	flex-basis: 69%;
 
-	@include md(display, none);
-	@include md(position, relative);
-	@include md(z-index, 2);
+	@include md-block{
+		display: none;
+		position: relative;
+		z-index: 2;
+	}
 
 	ul {
 		display: flex;
 		justify-content: space-between;
-		@include md(position, absolute);
-		@include md(flex-direction, column);
-		@include md(width, 100%);
+
+		@include md-block{
+			position: relative;
+			flex-direction: column;
+			width: 100%;
+		}
 	}
 
 	li{
 		font-family: 'OpenSans-SemiBold';
 		font-size: 0.9rem;
-		@include md(padding, 30px 20px);
-		@include md(text-align, center);
+
+		@include md-block{
+			padding: 30px 20px;
+			text-align: center;
+		}
 
 		&:hover{
-			@include md(border, 1px solid $iconColor4);
 			cursor: pointer;
+			@include md(border, 1px solid $iconColor4);			
 		}
 	}
 
@@ -303,10 +312,16 @@ header {
 	padding-bottom: 95px;
 
 	@include lg(padding-bottom, 40px);
-	@include sm(padding-bottom, 0px);
-	@include sm(margin-bottom, -20px);
-	@include xs(padding-top, 40px);
-	@include xs(margin-bottom, -60px);
+
+	@include sm-block{
+		padding-bottom: 0px;
+		margin-bottom: -20px;
+	}
+
+	@include xs-block{
+		padding-top: 40px;
+		margin-bottom: -60px;
+	}
 }
 
 .aboutWrap1 {
@@ -337,9 +352,12 @@ header {
 	margin-bottom: 141px;
 
 	@include sm(margin-bottom, 100px);
-	@include xs(justify-content, space-between);
-	@include xs(flex-wrap, wrap);
-	@include xs(margin-bottom, 50px);
+
+	@include xs-block{
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: 50px;
+	}
 
 	&_title {
 		text-transform: uppercase;
@@ -372,12 +390,17 @@ header {
 			left: -17px;
 			top: 3.3%;
 
-			@include xs(top, 0);
-			@include xs(height, 100%);
+			@include xs-block{
+				top: 0;
+				height: 100%;
+			}
 		}
 
-		@include lg(font-size, .65rem);
-		@include lg(flex-basis, 78%);
+		@include lg-block{
+			font-size: .65rem;
+			flex-basis: 78%;
+		}
+
 		@include md(font-size, .55rem);
 		@include xs(flex-basis, 100%);
 	}
@@ -388,8 +411,10 @@ header {
 	flex-flow: row nowrap;
 	justify-content: space-between;
 
-	@include lg(flex-wrap, wrap);
-	@include lg(justify-content, space-around);
+	@include lg-block{
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
 
 	&_icon {
 		img {
@@ -437,16 +462,22 @@ header {
 			span {
 				font-family: 'opensans-semibold';
 			}
-			@include lg(font-size, .7rem);
-			@include lg(margin-bottom, 15px);
+
+			@include lg-block{
+				font-size: .7rem;
+				margin-bottom: 15px;
+			}
 			@include md(font-size, .65rem);
 		}
 	}
 	&_foto {
 		max-width: 450px;
 		max-height: 255px;
-		@include xs(flex-basis, 100%);
-		@include xs(height, 48vw);
+
+		@include xs-block{
+			flex-basis: 100%;
+			height: 48vw;
+		}
 	}
 
 }
@@ -476,8 +507,12 @@ header {
 	flex-basis: 47%;
 
 	@include lg(flex-basis, 50%);
-	@include md(flex-basis, 75%);
-	@include md(margin, 0 auto);
+
+	@include md-block{
+		flex-basis: 75%;
+		margin: 0 auto;
+	}
+
 	@include sm(flex-basis, 85%);
 
 	&_it1 {
@@ -505,8 +540,10 @@ header {
 
 				margin-bottom: 16px;
 
-				@include lg(font-size, .9rem);
-				@include lg(margin-bottom, 8px);
+				@include lg-block{
+					font-size: .9rem;
+					margin-bottom: 8px;
+				}
 			}
 
 			&-p {
@@ -568,17 +605,22 @@ header {
 		left: 0;
 		// opacity: .5;
 		@include lg(display, block);
-		@include sm(height, 39px);
-		@include sm(top, 61px);
-		@include xs(height, 28px);
-		@include xs(top, 72px);
+		@include sm-block{
+			height: 39px;
+			top: 61px;
+		}
+
+		@include xs-block{
+			height: 28px;
+			top: 72px;
+		}
 	}
 }
 
 //----------Section3------------------------------------
 
 .section3 {	
-	background: url('../img/bg2.jpg') no-repeat;
+	background: url(../img/bg2.jpg) no-repeat;
 	padding-bottom: 258px;
 	position: relative;
 
@@ -703,21 +745,25 @@ q {
 	padding-top: 100px;
 
 	@include sm(padding-top, 70px);
-	@include xs(justify-content, space-between);
-	@include xs(flex-wrap, wrap);
-	@include xs(padding-top, 40px);
+
+	@include xs-block{
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding-top: 40px;
+	}
 
 	&_title {
+		@include col();
 		text-transform: uppercase;
 		font-family: 'OpenSans-Bold';
 		font-size: 1.5rem;
-		text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
-		@include col();
+		text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);		
 
 		@include lg(font-size, 1.2rem);
 	}
 
 	&_p {
+		@include col();
 		position: relative;
 		text-transform: uppercase;
 		font-family: 'Lato-Regular';
@@ -725,8 +771,7 @@ q {
 		line-height: 1.8;
 		color: $titleP;
 		text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-		max-width: 840px;
-		@include col();
+		max-width: 840px;		
 
 		&::after {
 			content: '';
@@ -744,26 +789,34 @@ q {
 
 		@include lg(font-size, .65rem);
 		@include lg(flex-basis, 78%);
+
 		@include md(font-size, .55rem);
+
 		@include xs(flex-basis, 100%);
 	}
 }
 
 .teamprofiles {
-	margin-top: 150px;
 	@include row-flex();
+	margin-top: 150px;	
 	margin-bottom: 97px;
 	
 	@include lg(margin-bottom, 15px);
-	@include md(margin-top, 100px);	
-	@include md(margin-bottom, 0px);
+
+	@include md-block{
+		margin-top: 100px;
+		margin-bottom: 0px;
+		justify-content: space-around;
+	}
+
 	@include sm(margin-top, 70px);	
 	@include xs(margin-top, 40px);
 }
 
 .teamprofile {
-	@include size(3);
 	@include col();
+	@include size(3);
+	
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-between;
@@ -773,9 +826,9 @@ q {
 	visibility: hidden;
 	z-index: 1;
 
-	@include size-md(6);
-	@include size-xs(12);
-	@include sm(z-index, 1)
+	@include size-md(5);
+	@include sm(z-index, 1);
+	@include size-xs(9);	
 
 	&:hover {
 		background: #f0f0f0;
@@ -847,7 +900,7 @@ q {
 	}
 }
 
-//----------------Section5------------------------------------
+//----------------Section 5------------------------------------
 
 .section5 {
 	background: url(../img/bg2.jpg) no-repeat;
@@ -884,8 +937,8 @@ q {
 		@include md(top, 25px);
 		@include md(height, 55px);
 
-		@include sm(top, 220px);
-		@include sm(height, 43px);
+		@include sm(top, 122px);
+		@include sm(height, 100px);
 
 		@include xs(top, 197px);		
 		@include xs(height, 36px);
@@ -918,17 +971,17 @@ q {
 	flex-flow: column nowrap;
 	align-items: center;
 
-	@include sm(position, relative);
-	@include sm(left, 0);	
-	@include sm(flex-basis, 50%);
-	@include sm(margin-top, 30px);
+	@include sm-block{
+		position: relative;
+		left: 0px;
+		flex-basis: 50%;
+		margin-top: 30px;
+	}
 
-	@include sm(flex-basis, 100%);
-	@include sm(margin-top, 50px);
-
-	/* @include size-md(6);
-	@include md(margin-bottom, 30px);
-	@include size-xs(12); */
+	@include xs-block{
+		flex-basis: 100%;
+		margin-top: 50px;
+	}
 
 	&_border {
 		position: relative;
@@ -972,7 +1025,7 @@ q {
 	}
 }
 
-//----------------Section5------------------------------------
+//----------------Section 6------------------------------------
 
 .section6 {
 	background: #fff;
@@ -989,6 +1042,8 @@ q {
 		width: 100%;
 		height: 1px;
 		background: $iconColor4;
+
+		@include xxs(bottom, -75px)
 	}
 }
 
@@ -1000,15 +1055,14 @@ q {
 }
 
 .sec6Item {
+	@include col();
 	text-align: center;
 	display: flex;
 	width: 30%;
-	//flex-basis: 30%;
 	flex-flow: column nowrap;
 	justify-content: space-between;
 	align-items: center;
 
-	@include col();
 	@include size-lg(4);
 	//@include size-md(6);
 	@include size-sm(12);
@@ -1045,6 +1099,7 @@ q {
 		line-height: 1.15;
 		color: $iconColor3;
 		@include sm(width, 60%);
+		@include xs(width, 80%);
 	}
 }
 
@@ -1068,8 +1123,11 @@ q {
 	margin-top: 240px;
 	display: flex;
 	justify-content: space-between;
-
-	//@include lg(justify-content, space-around);
+	@include xxs-block{
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 150px;
+	}
 }
 
 .wrapabout {
@@ -1123,12 +1181,18 @@ q {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
-	//border: solid 1px #88E2E6FF;
-	//border: solid 1px red;
 
-	@include lg(height, 411px);
-	@include lg(flex-basis, 70%);
-	@include lg(justify-content, center);
+	@include lg-block{
+		height: 411px;
+		flex-basis: 70%;
+		justify-content: center;
+	}
+
+	@include xs-block{
+		flex-basis: 248px;
+	}
+
+	@include xxs(margin-top, 100px);
 
 	&_btn{
 		display: block;
@@ -1179,6 +1243,8 @@ q {
 
 		@include lg(position, absolute);
 		@include lg(display, none);
+		@include sm(right, 0);
+		@include xs(width, 238px)
 
 		&-show{
 			display: flex;
@@ -1250,35 +1316,32 @@ q {
 	}
 }
 
-.sliderBtn-tarifSM{			
+.wprapSMbuttons{
 	display: block;
 	position: absolute;
-	width: 35px;
-	height: 35px;
-	border: 2px solid #e6e6e6;
-	text-align: center;
-	line-height: 35px;
 	top: -60px;
+	right: 80px;
 
-	&-prev{
-		@extend .sliderBtn-tarifSM;
-		left: 42.5%;
-	}
-
-	&-next{
-		@extend .sliderBtn-tarifSM;
-		left: calc(42.5% + 45px);
-	}
-
-	&:hover{
-		cursor: pointer;
-		color: $iconColor4;
-	}
-
-	&:active{
-		color: $iconColor3;
+	i{	
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		border: 2px solid #e6e6e6;
+		text-align: center;
+		line-height: 35px;
+		top: -60px;
+	
+		&:hover{
+			cursor: pointer;
+			color: $iconColor4;
+		}
+	
+		&:active{
+			color: $iconColor3;
+		}
 	}
 }
+
 
 .tarifBtn {	
 	font-family: 'opensans-semibold';
@@ -1292,7 +1355,6 @@ q {
 	&:hover {
 		background: $iconColor4;
 		color: $iconColor2;
-		// z-index: 0;
 	} 
 
 	&Wrapper {
@@ -1305,7 +1367,7 @@ q {
 	} 
 }
 
-//----------------Section7------------------------------------
+//----------------Section 7------------------------------------
 
 .section7 {
 	 background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
@@ -1315,16 +1377,49 @@ q {
 .slider {
 	max-width: 100%;
 	margin-top: 155px;
+
+	@include xs(margin-top, 70px)
+}
+
+.sec7Wrap1{
+	position: relative;
+	display: block;
+	width: 1170px;
+	max-width: 100%;
+	margin: 0 auto;
 }
 
 .imgs{
 	position: relative;
-	//height: 580px;
+	display: block;
 
 	img{
-		//position: absolute;
-		width: 100%;
-		height: 100%;
+		@include lg(width, 32%);
+		@include md(width, 48%);
+		@include sm(width, 100%);
+	}
+
+	.sec7SliderShow{
+		display: inline-block;
+	}
+}
+
+.dotsForSec7Slider{	
+	margin: 10px auto 0px auto;
+	text-align: center;
+
+	&_dot{
+		display: inline-block;
+		margin: 0px 5px 0px 5px;
+		background-color: #b1b0df;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+
+	&_dot-active{		
+		background-color: #9796f0;
 	}
 }
 
@@ -1376,7 +1471,7 @@ q {
 	}
 }
 
-/*------------- Section8 Section 8 -----------------*/
+/*------------- Section 8 -----------------*/
 
 .videoWrapper{
 	margin-top: 80px;
@@ -1414,6 +1509,8 @@ q {
 
 	@include sm(flex-basis, 44%);
 	@include xs(flex-basis, 36%);
+	@include xxs(flex-basis, 65%);
+	@include xxs(margin-right, 10px);
 
 	p{
 		font-family: "OpenSans-Bold";
@@ -1433,7 +1530,6 @@ q {
 		min-height: 125px;
 
 		@include md(min-height, 147px);
-		//@include sm(min-height, 150px);
 
 		&:focus{
 			border: $iconColor4 2px solid;
@@ -1498,6 +1594,7 @@ q {
 
 	@include sm(flex-basis, 48%);
 	@include xs(flex-basis, 57%);
+	//@include xxs(flex-basis, 35%);
 }
 
 .contactTitle{
@@ -1522,6 +1619,7 @@ q {
 	//vertical-align: top;
 	height: 35px;
 	margin-top: 10px;
+	@include xxs(margin-bottom, 30px)
 
 	p{
 		display: inline-block;
@@ -1579,9 +1677,13 @@ q {
 	margin-bottom: 45px;
 
 	@include md(transform, rotate(-3deg) scale(1.04));
-	@include sm(transform, rotate(-3deg) scale(1.05));
-	@include sm(margin-top,100px);
-	@include sm(margin-bottom,20px);
+
+	@include sm-block{
+		transform: rotate(-3deg) scale(1.05);
+		margin-top: 100px;
+		margin-bottom: 20px;
+	}
+
 	@include xs(transform, rotate(-3deg) scale(1.06));
 }
 
@@ -1595,28 +1697,28 @@ footer{
 	padding-bottom: 20px;
 
 	@include sm(flex-wrap, wrap);
-	//@include sm(justify-content, center)
 }
 
 .footerText{
 	font-size: 12px;
 
-	@include sm(font-size, 10px);
-	@include sm(flex-basis, 100%);
-	@include sm(text-align, center);
-	@include sm(margin-bottom, 10px);
+
+	@include sm-block{
+		font-size: 10px;
+		flex-basis: 100%;
+		text-align: center;
+		margin-bottom: 10px;
+	}
 
 	p{
 		display: inline-block;
 		margin-right: 10px;
-		//font-size: 12px;
 		font-family: "OpenSans-SemiBold";
 		color: rgb(13, 13, 13);
 		text-transform: uppercase;
 	}
 
 	i{
-		//font-size: 12px;
 		vertical-align: -1px;
 	}
 }

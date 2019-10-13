@@ -1,0 +1,8 @@
+import './AnimateHeader'
+import './map'
+import './responsiveMenu'
+import './scroll'
+import './scrollTo'
+import './tarifs'
+import './GnativeSlider'
+import './setGnativeSlider'
