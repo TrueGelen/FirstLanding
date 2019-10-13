@@ -12,4 +12,5 @@ This is a training project. [Link to this page](https://truegelen.github.io/Firs
 ***I also worked here with:***
 * fonts and icon fonts
 * in project used my own slider ([GnativeSlider](https://github.com/TrueGelen/GnativeSlider))
+* embed video on the page
 * and of course, landing is fully responsive
