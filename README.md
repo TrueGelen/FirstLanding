@@ -1,5 +1,5 @@
-# FirstLanding
-This is a training project.
+# [FirstLanding](https://truegelen.github.io/FirstLanding/dist/)
+This is a training project. [Link to this page](https://truegelen.github.io/FirstLanding/dist/)
 ---------------------------------
 ***Used technology stack:***
 * HTML
