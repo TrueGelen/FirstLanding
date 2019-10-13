@@ -8,6 +8,7 @@ This is a training project.
 * Gulp + Webpack
 * SmartGrid
 * Scss
+
 ***I also worked here with:***
 * fonts and icon fonts
 * in project used my own slider ([GnativeSlider](https://github.com/TrueGelen/GnativeSlider))
