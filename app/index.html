@@ -3,22 +3,18 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Document</title>
-	<!-- <link rel="stylesheet" href="/dist/css/styles.css"> -->
-	<link rel="stylesheet" href="/app/css/normalize.css">
-	<link rel="stylesheet" href="/app/css/main.css">
-	<link rel="stylesheet" href="app/owl/dist/assets/owl.carousel.css">
-	<link rel="stylesheet" href="app/owl/dist/assets/owl.theme.default.css">
-	<script src="https://api-maps.yandex.ru/2.1/?apikey=7a7c4b4e-ec22-470f-800a-ea1c58880407&lang=ru_RU"
-		type="text/javascript">
-		</script>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=7a7c4b4e-ec22-470f-800a-ea1c58880407&lang=ru_RU">
+	</script>
 </head>
 
 <body>
 	<header>
 		<div class="container">
 			<div class="menuwrapper">
-				<a class="logo" href="#"><img src="./dist/img/logo.png" alt="logo"></a>
+				<a class="logo" href="#"><img src="./img/logo.png" alt="logo"></a>
 				<nav class="menu">
 					<ul>
 						<li class="liForJs"><a class="menu-link" href="#about">about</a></li>
@@ -52,7 +48,9 @@
 		<div class="container">
 			<div class="aboutWrap1">
 				<div id="about" class="about">
-					<div class="about_title">about</div>
+					<div class="about_title">
+						<h2>about</h2>
+					</div>
 					<div class="about_p">
 						Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
 						consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet.
@@ -60,7 +58,7 @@
 				</div>
 				<div class="story">
 					<div class="story_icon">
-						<img src="./dist/img/lampIncon.jpg" alt="lampIncon">
+						<img src="./img/lampIncon.jpg" alt="lampIncon">
 					</div>
 					<div class="story_text">
 						<div class="story_text-title">our story</div>
@@ -74,17 +72,17 @@
 							<span>inceptos himenaeos.</span>
 						</div>
 					</div>
-					<img class="story_foto" src="./dist/img/Placeforfotos.jpg" alt="fotoStory">
+					<img class="story_foto" src="./img/Placeforfotos.jpg" alt="fotoStory">
 				</div>
 			</div>
 			<div class="aboutWrap2">
 				<div class="devices">
-					<img src="./dist/img/apDevices.jpg" alt="appDevices">
+					<img src="./img/apDevices.jpg" alt="appDevices">
 				</div>
 				<div class="skills">
 					<div class="skills_it1">
 						<div class="skills_it1-icon">
-							<img src="./dist/img/skillsIcon.jpg" alt="skillsIcon">
+							<img src="./img/skillsIcon.jpg" alt="skillsIcon">
 						</div>
 						<div class="skills_it1_text">
 							<div class="skills_it1_text-title">
@@ -137,7 +135,7 @@
 			</div>
 			<div class="teamprofiles">
 				<div class="teamprofile">
-					<div class="teamprofile-photo"><img src="./dist/img/teamphoto.png" alt="proffot1"></div>
+					<div class="teamprofile-photo"><img src="./img/teamphoto.png" alt="proffot1"></div>
 					<div class="teamprofile_titlewrap">
 						<div class="teamprofile_titlewrap-name">john doe</div>
 						<div class="teamprofile_titlewrap-position">Founder</div>
@@ -153,7 +151,7 @@
 					</div>
 				</div>
 				<div class="teamprofile">
-					<div class="teamprofile-photo"><img src="./dist/img/teamphoto.png" alt="proffot2"></div>
+					<div class="teamprofile-photo"><img src="./img/teamphoto.png" alt="proffot2"></div>
 					<div class="teamprofile_titlewrap">
 						<div class="teamprofile_titlewrap-name">jesmine doe</div>
 						<div class="teamprofile_titlewrap-position">Designer</div>
@@ -169,7 +167,7 @@
 					</div>
 				</div>
 				<div class="teamprofile">
-					<div class="teamprofile-photo"><img src="./dist/img/teamphoto.png" alt="proffot3"></div>
+					<div class="teamprofile-photo"><img src="./img/teamphoto.png" alt="proffot3"></div>
 					<div class="teamprofile_titlewrap">
 						<div class="teamprofile_titlewrap-name">martine doe</div>
 						<div class="teamprofile_titlewrap-position">Developer</div>
@@ -185,7 +183,7 @@
 					</div>
 				</div>
 				<div class="teamprofile">
-					<div class="teamprofile-photo"><img src="./dist/img/teamphoto.png" alt="proffot4"></div>
+					<div class="teamprofile-photo"><img src="./img/teamphoto.png" alt="proffot4"></div>
 					<div class="teamprofile_titlewrap">
 						<div class="teamprofile_titlewrap-name">anthony doe</div>
 						<div class="teamprofile_titlewrap-position">Photographer</div>
@@ -298,8 +296,10 @@
 					<!-- wrapTarif_btn wrapTarif_btn-prev wrapTarif_btn wrapTarif_btn-next sliderBtn-tarifSM-prev sliderBtn-tarifSM-next-->
 					<i class="icon-chevron-left wrapTarif_btn wrapTarif_btn-prev"></i>
 					<i class="icon-chevron-right wrapTarif_btn wrapTarif_btn-next"></i>
-					<i class="icon-chevron-left sliderBtn-tarifSM-prev"></i>
-					<i class="icon-chevron-right sliderBtn-tarifSM-next"></i>
+					<div class="wprapSMbuttons">
+						<i class="icon-chevron-left sliderBtn-tarifSM-prev"></i>
+						<i class="icon-chevron-right sliderBtn-tarifSM-next"></i>
+					</div>
 					<div class="wrapTarif_item">
 						<div class="wrapTarif_item-title1">basic</div>
 						<div class="wrapTarif_item-title2">$35</div>
@@ -312,7 +312,8 @@
 						</div>
 					</div>
 					<!-- <div class="wrapTarif_item wrapTarif_item-mod"> -->
-					<div class="wrapTarif_item wrapTarif_item-show">
+					<!-- <div class="wrapTarif_item wrapTarif_item-show"> -->
+					<div class="wrapTarif_item">
 						<div class="wrapTarif_item-title1">gold</div>
 						<div class="wrapTarif_item-title2">$99</div>
 						<div class="wrapTarif_item-p wrapTarif_item-p-mod">first description</div>
@@ -349,15 +350,20 @@
 					</div>
 				</div>
 				<div class="slider">
-					<div class="imgs owl-carousel owl-theme">
-						<img src="./dist/img/digital atwork/res/rowan-heuvel.jpg" alt="atwork">
-						<img src="./dist/img/digital atwork/res/scott-webb.jpg" alt="atwork">
-						<img src="./dist/img/digital atwork/res/stephan-bechert.jpg" alt="atwork">
-						<img src="./dist/img/digital atwork/res/joshua-coleman.jpg" alt="atwork">
-						<img src="./dist/img/digital atwork/res/gus-ruballo.jpg" alt="atwork">
+					<!-- owl-carousel owl-theme -->
+					<div class="imgs">
+						<img src="./img/digital_atwork/res/rowan-heuvel.jpg" alt="atwork">
+						<img src="./img/digital_atwork/res/scott-webb.jpg" alt="atwork">
+						<img src="./img/digital_atwork/res/stephan-bechert.jpg" alt="atwork">
+						<img src="./img/digital_atwork/res/joshua-coleman.jpg" alt="atwork">
+						<img src="./img/digital_atwork/res/gus-ruballo.jpg" alt="atwork">
+					</div>
+					<div class="dotsForSec7Slider">
+						<div class="dotsForSec7Slider_dot"></div>
 					</div>
 					<div class="buttonsWrap noselect">
-						<i id="prev" class="icon-chevron-left sliderBtn sliderBtn-prev owl-prev"></i>
+						<!-- owl-prev -->
+						<i id="prev" class="icon-chevron-left sliderBtn sliderBtn-prev "></i>
 						<i id="next" class="icon-chevron-right sliderBtn sliderBtn-next"></i>
 					</div>
 				</div>
@@ -453,15 +459,6 @@
 	<div class="pageUp">^</div>
 </body>
 
-<!-- <script src="/dist/js/index.js"></script> -->
-<script src="app/js/jquery.min.js"></script>
-<script src="app/owl/dist/owl.carousel.min.js"></script>
-<script src="app/js/settingOwl.js"></script>
-<script src="app/js/AnimateHeader.js"></script>
-<script src="app/js/scroll.js"></script>
-<script src="app/js/scrollTo.js"></script>
-<script src="app/js/responsiveMenu.js"></script>
-<script src="app/js/tarifs.js"></script>
-<script src="app/js/map.js"></script>
+<script src="js/build.js"></script>
 
 </html>
