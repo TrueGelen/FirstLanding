@@ -23,40 +23,50 @@ window.addEventListener('load', function () {
 	//function for start styles and setting event listeners
 	function starter() {
 		if (window.innerWidth <= 1100 && window.innerWidth > 780) {
+			resetJS()
 			tarifArr[1].style.display = 'flex'
 			chevronLeftSM.style.display = 'none'
 			chevronRightSM.style.display = 'none'
 			chevronLeftLG.style.display = 'inline-block'
 			chevronRightLG.style.display = 'inline-block'
 		} else if (window.innerWidth <= 780) {
+			resetJS()
 			tarifArr[1].style.display = 'flex'
 			chevronLeftLG.style.display = 'none'
 			chevronRightLG.style.display = 'none'
 			chevronLeftSM.style.display = 'inline-block'
 			chevronRightSM.style.display = 'inline-block'
 		} else {
+			resetJS()
 			tarifArr[1].style.display = 'flex'
 			chevronLeftLG.style.display = 'none'
 			chevronRightLG.style.display = 'none'
-			chevronLeftSM.style.display = 'inline-block'
-			chevronRightSM.style.display = 'inline-block'
+			chevronLeftSM.style.display = 'none'
+			chevronRightSM.style.display = 'none'
 		}
+	}
 
-		prevArr.forEach((item) => {
-			item.addEventListener('click', function () {
-				tarifArr[counter].style.display = 'none'
-				checker(false)
-			})
+	prevArr.forEach((item) => {
+		item.addEventListener('click', function () {
+			tarifArr[counter].style.display = 'none'
+			checker(false)
 		})
+	})
 
-		nextArr.forEach((item) => {
-			item.addEventListener('click', function () {
-				tarifArr[counter].style.display = 'none'
-				checker(true)
-			})
+	nextArr.forEach((item) => {
+		item.addEventListener('click', function () {
+			tarifArr[counter].style.display = 'none'
+			checker(true)
+		})
+	})
+
+	starter()
+
+	function resetJS() {
+		tarifArr.forEach(tarif => {
+			tarif.style.display = ''
 		})
 	}
-	starter()
 
 	//function for work tarif slider
 	function checker(toggle) {
